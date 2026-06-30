@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 600px;
+    height: 500px;
+    border: 1px solid black;
+    margin: auto;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.mario {
+    width: 140px;
+    position: absolute;
+    bottom: 0;
+}
+
+.jump {
+    animation: pular 1.5s infinite linear;
+}
+
+.tubo {
+    width: 80px;
+    height: 80px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    animation: deslizar 3s infinite linear;
+}
+
+@keyframes deslizar {
+
+    from {
+        right: -90px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes pular {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
