@@ -5,10 +5,11 @@
 }
 
 .container {
-    width: 600px;
+    width: 100%;
     height: 500px;
     border: 1px solid black;
     margin: auto;
+
     position: relative;
     overflow-x: hidden;
 }
@@ -29,6 +30,9 @@
     right: 0;
     bottom: 0;
     position: absolute;
+}
+
+.pipe-slide {
     animation: deslizar 3s infinite linear;
 }
 
