@@ -4,14 +4,72 @@
     box-sizing: border-box;
 }
 
+html {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+}
+
 .container {
+    background-image: linear-gradient(to bottom, #2929ff, #ffffff, white);
     width: 100%;
     height: 500px;
-    border: 1px solid black;
+    border-bottom: 10px solid rgb(4, 213, 4);
     margin: auto;
 
     position: relative;
     overflow-x: hidden;
+
+}
+
+button {
+    visibility: hidden;
+    opacity: 1;
+
+}
+
+.title {
+    width: 100%;
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hidden-button {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+    padding: 20px 30px;
+    margin: 15px auto;
+    font-weight: 700;
+    font-size: 17px;
+    background-color: #00ed00;
+    outline: 1px solid #005b00;
+    transition: .555s ease-in-out;
+}
+
+
+.placar-game {
+    border: 2px solid #00ed00;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 20px;
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: auto;
+    text-align: center;
+}
+
+
+#contador {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
 .mario {
@@ -30,11 +88,9 @@
     right: 0;
     bottom: 0;
     position: absolute;
-}
-
-.pipe-slide {
     animation: deslizar 3s infinite linear;
 }
+
 
 @keyframes deslizar {
 
@@ -58,5 +114,15 @@
 
     100% {
         bottom: 0;
+    }
+}
+
+@keyframes rodar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
