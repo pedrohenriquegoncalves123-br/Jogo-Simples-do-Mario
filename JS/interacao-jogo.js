@@ -21,9 +21,9 @@ window.addEventListener("keydown", () => {
 
 const playAgain = document.querySelector(".btn-play-again");
 
+
 const loop = setInterval(() => {
     let pipePosicao = Number(pipe.offsetLeft);
-
     let marioPosicao = +window.getComputedStyle(mario).bottom.replace('px', '');
     if (pipePosicao < 120 && marioPosicao <= 70) {
 
@@ -37,12 +37,8 @@ const loop = setInterval(() => {
         mario.style.width = "120px";
         playAgain.classList.add("hidden-button");
     }
-
-    const contador = document.getElementById("contador")
-    if (pipePosicao < 0) {
-
-        contador.innerHTML = placarJogo;
-    }
+    let placarJogo = Number();
+    const contador = document.getElementById("contador");
 
     if (pipePosicao < 30 && pipePosicao > 0 && marioPosicao > 70) {
         if (!canoPassou) {
@@ -53,8 +49,11 @@ const loop = setInterval(() => {
     }
 }, 10);
 
-
 playAgain.addEventListener("click", () => {
     location.reload(true);
-
+    let pipePosicao = Number(pipe.offsetLeft);
+    mario.src = "./imagens/mario.gif";
+    pipe.style.animation = "deslizar";
+    pipePosicao.left = `${100}%`;
+    mario.style.width = `${140}px`;
 })
