@@ -17,7 +17,7 @@ body {
 .container {
     background-image: linear-gradient(to bottom, #2929ff, #ffffff, white);
     width: 100%;
-    height: 500px;
+    height: 400px;
     border-bottom: 10px solid rgb(4, 213, 4);
     margin: auto;
 
