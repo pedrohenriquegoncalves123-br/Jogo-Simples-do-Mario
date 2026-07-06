@@ -91,6 +91,9 @@ button {
     animation: deslizar 3s infinite linear;
 }
 
+.btn-pular {
+    display: none;
+}
 
 @keyframes deslizar {
 
@@ -124,5 +127,28 @@ button {
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media(max-width: 992px) {
+    .btn-pular {
+        margin: auto;
+        display: flex;
+        width: 100px;
+        height: 100px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seta-pular {
+        margin: auto;
+        display: inline-block;
+        border-width: 2px 3px 0px 0px;
+        border-style: solid;
+        border-color: #2e2e2e;
+        transform: rotate(316deg);
+        width: fit-content;
+        height: fit-content;
+        padding: 5px;
     }
 }
