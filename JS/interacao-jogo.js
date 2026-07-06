@@ -43,7 +43,7 @@ const loop = setInterval(() => {
 
         mario.style.bottom = `${marioPosicao}px`;
 
-        mario.src = "../imagens/mario-game-over.jpg";
+        mario.src = "./imagens/mario-game-over.jpg";
         mario.style.width = "120px";
         playAgain.classList.add("hidden-button");
     }
