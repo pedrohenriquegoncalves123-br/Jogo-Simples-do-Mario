@@ -1,8 +1,5 @@
 const mario = document.querySelector(".mario");
-const placar = document.querySelector(".placar-game");
 const container = document.querySelector(".container");
-let placarJogo = 0;
-const contador = document.getElementById("contador");
 
 const pipe = document.querySelector(".tubo");
 
@@ -10,11 +7,9 @@ const pipe = document.querySelector(".tubo");
 window.addEventListener("keydown", () => {
 
     mario.classList.add("jump");
-    placarGame();
 
     setTimeout(() => {
         mario.classList.remove("jump");
-        placarGame();
     }, 1500);
 
 });
@@ -26,16 +21,17 @@ const botaoPular = document.querySelector(".btn-pular").addEventListener("click"
         mario.classList.remove("jump");
         placarGame();
     }, 1500);
-})
+});
 
+const setaPular = document.querySelector(".btn-pular span");
 
-const playAgain = document.querySelector(".btn-play-again");
+const playAgain = document.querySelector(".btn-reiniciar");
 
 
 const loop = setInterval(() => {
     let pipePosicao = Number(pipe.offsetLeft);
     let marioPosicao = +window.getComputedStyle(mario).bottom.replace('px', '');
-    if (pipePosicao < 120 && marioPosicao <= 70) {
+    if (pipePosicao < 110 && marioPosicao <= 70) {
 
         pipe.style.animation = "none";
         mario.classList.remove("jump");
@@ -46,9 +42,11 @@ const loop = setInterval(() => {
         mario.src = "../imagens/mario-game-over.jpg";
         mario.style.width = "120px";
         playAgain.classList.add("hidden-button");
-
-        gameOver.classList.add('ativo');
+        const telaGameOver = document.querySelector(".game-over-screen")
+        telaGameOver.classList.add('active-button');
+        setaPular.classList.remove('seta-pular');
     }
+
 
 
 }, 10);
@@ -62,25 +60,33 @@ playAgain.addEventListener("click", () => {
     mario.style.width = `${140}px`;
 });
 
-function placarGame() {
-    let canoPassou = false;
-    const mario = document.querySelector(".mario");
-    let marioPosicao = +window.getComputedStyle(mario).bottom.replace('px', '');
-    let pipePosicao = Number(pipe.offsetLeft);
-    const contador = document.getElementById("contador");
-    const contadorNum = Number(0);
+const contador = document.getElementById("contador");
 
-    if (!canoPassou) {
+let placarJogo = 0;
+let canoPassou = false;
 
-        const gameOver = document.getElementById("gameOver");
-        if (pipePosicao <= -80 && marioPosicao > 70) {
-            canoPassou = true;
-        }
+const loopPlacar = setInterval(() => {
+    let pipePosicao = pipe.offsetLeft;
 
-        if (canoPassou) {
-            contador = contadorNum + 1;
-        }
+    if (pipePosicao < 0 && !canoPassou) {
+        placarJogo++;
+        contador.innerText = placarJogo;
+        canoPassou = true;
     }
 
-    return contador
+    if (pipePosicao > 110) {
+        canoPassou = false;
+    }
+
+    const placarFinal = document.querySelector("span.placar-final");
+    placarFinal.innerHTML = placarJogo;
+
+}, 10);
+
+function resetarJogo() {
+    placarJogo = 0;
+    canoPassou = false;
+    contador.innerHTML = 0;
+
+    //Escondendo a tela de game over
 }
