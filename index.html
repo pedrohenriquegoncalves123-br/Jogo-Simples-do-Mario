@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mario Game</title>
     <link rel="stylesheet" href="../CSS/stytle.css">
+    <link rel="stylesheet" href="../CSS/fimDeJogo.css">
 </head>
 
 <body>
@@ -19,9 +20,20 @@
         <img src="../imagens/mario.gif" alt="mario" class="mario">
         <img src="../imagens/tubo-jogo-mario.png" alt="tubo" class="tubo">
     </div>
-    <div class="game-over" id="gameOver">
-        <p>Você perdeu</p>
-        <button class="btn-play-again">Jogar Novamente</button>
+
+    <div class="game-over-screen">
+        <div class="card-game-over">
+            <h1 class="titulo-game-over">GAME OVER</h1>
+
+            <div class="caixa-pontuacao">
+                <p>PONTUAÇÃO</p>
+                <span class="placar-final"></span>
+            </div>
+
+            <button class="btn-reiniciar">
+                JOGAR NOVAMENTE
+            </button>
+        </div>
     </div>
     <div class="btn-pular"><span class="seta-pular"></span></div>
 
